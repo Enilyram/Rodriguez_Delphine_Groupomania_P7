@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false, 
         validate: {
           is: /^[a-z\u00C0-\u00FF ,'-]+$/i,
         },
       },
-      email: {
+      email: { 
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,

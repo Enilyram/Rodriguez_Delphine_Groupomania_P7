@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         { onDelete: "cascade", hooks: true }
       );
       Post.hasMany(models.Comment);
-      Post.hasMany(models.LikePost);
+      
     }
   }
   Post.init(
@@ -36,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Post",
+      modelName: "Post", 
     }
   );
-  return Post;
+  return Post; 
 };

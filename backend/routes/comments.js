@@ -1,5 +1,6 @@
 //Fichier présentant les routes comments disponibles
 
+const express = require("express");
 const router = express.Router();
 const commentsCtrl = require("../controllers/comments");
 const auth = require("../middleware/auth");

@@ -42,4 +42,4 @@ const fileFilter = (req, file, callback) => {
   }
 };
 
-module.exports = multer({ storage, fileFilter }).array("image", 4);
+module.exports = multer({ storage, fileFilter }).array("image", 4); 

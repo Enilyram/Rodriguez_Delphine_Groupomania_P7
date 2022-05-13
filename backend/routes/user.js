@@ -22,3 +22,4 @@ router.put("/user-profile/settings/:userId", auth, userCtrl.changePassword);
 router.delete("/user-profile/:userId", auth, userCtrl.deleteUser);
 
 module.exports = router;
+ 

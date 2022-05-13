@@ -46,14 +46,14 @@ exports.login = (req, res, next) => {
   })
     .then((user) => {
       if (!user) {
-        return res.status(401).json({ error: "Utilisateur non trouvé !" });
+        return res.status(401).json({ error: "L'utilisateur n'existe pas" });
       }
 
       bcrypt
         .compare(req.body.password, user.password)
         .then((valid) => {
           if (!valid) {
-            return res.status(401).json({ error: "Mot de passe incorrect !" });
+            return res.status(401).json({ error: "Mauvais mot de passe" });
           }
           res.status(201).json(newToken(user));
         })
@@ -120,7 +120,7 @@ exports.changePassword = async (req, res, next) => {
       if (!passwordDecrypt) {
         return res
           .status(400)
-          .json({ error1: "Le mot de passe est erroné" });
+          .json({ error1: "Erreur mot de passe" });
       } else if (newPasswordDecrypt) {
         return res.status(400).json({
           error: "Votre nouveau mot de passe ne peut pas être identique à l'ancien",

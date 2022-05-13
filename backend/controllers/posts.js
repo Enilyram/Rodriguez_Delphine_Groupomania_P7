@@ -25,9 +25,9 @@ exports.createPost = async (req, res, next) => {
     if (req.body.description !== "" && postObject.userId === req.token.userId) {
       let post = await Post.create({ ...postObject });
       post = await Post.findOne({ where: { id: post.id }, include: db.User });
-      res.status(201).json({ message: "Publication enregistrée !", post });
+      res.status(201).json({ message: "Publication enregistré", post });
     } else {
-      throw "création de post non autorisée";
+      throw "Vous n'êtes pas autorisé à créer une publication";
     }
   } catch (error) {
     res.status(400).json({ error });
@@ -67,12 +67,12 @@ exports.modifyPost = (req, res, next) => {
       if (post.userId === req.token.userId) {
         Post.update({ ...postObject }, { where: { id: req.params.id } })
           .then(() =>
-            res.status(200).json({ message: "Publication modifiée !" })
+            res.status(200).json({ message: "Modification réussie" })
           )
           .catch((error) => res.status(400).json({ error }));
       } else {
         res.status(401).json({
-          error: "vous n'êtes pas autorisé à modifier cette publication",
+          error: "Vous n'avez pas l'autorisation de modifier cette publication",
         });
       }
     })
@@ -99,7 +99,7 @@ exports.deletePost = (req, res, next) => {
           .catch((error) => res.status(400).json({ error }));
       } else {
         res.status(401).json({
-          error: "Vous n'avez pas l'autorisation de supprimer cette publication",
+          error: "Vous n'avez pas l'autorisation pour supprimer cette publication",
         });
       }
     })

@@ -18,9 +18,9 @@ exports.createComment = async (req, res, next) => {
         { commentsCount: post.commentsCount + 1 },
         { where: { id: req.params.postId } }
       );
-      res.status(201).json({ message: "Commentaire ajouté!" });
+      res.status(201).json({ message: "Commentaire envoyé" });
     } else {
-      throw "création de commentaire non autorisée";
+      throw "Création de commentaire interdit";
     }
   } catch (error) {
     res.status(400).json({ error });
@@ -38,7 +38,7 @@ exports.modifyComment = async (req, res, next) => {
       await comment.update(req.body, { where: { id: req.params.commentId } });
       res.status(200).json({ message: "Commentaire modifié !" });
     } else {
-      throw "vous n'êtes pas autorisé à modifier ce commentaire";
+      throw "Vous n'avez pas l'autorisation de modifier ce commentaire";
     }
   } catch (error) {
     res.status(400).json({ error });
@@ -60,9 +60,9 @@ exports.deleteComment = async (req, res, next) => {
         { where: { id: req.params.postId } }
       );
       await comment.destroy({ where: { id: req.params.commentId } });
-      res.status(200).json({ message: "Commentaire supprimé !" });
+      res.status(200).json({ message: "Commentaire supprimé" });
     } else {
-      throw "vous n'êtes pas autorisé à supprimer ce commentaire";
+      throw "Vous n'avez pas l'autorisation pour supprimer ce commentaire";
     }
   } catch (error) {
     res.status(400).json({ error });

@@ -1,12 +1,9 @@
-// logique metier appliquee aux routes user
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../models/index");
 const { User } = db.sequelize.models;
 
-// token et userID
-
+// Definition du token et et de l'userID
 const newToken = (user) => {
   token = jwt.sign(
     { userId: user.id, isAdmin: user.admin },
@@ -16,8 +13,7 @@ const newToken = (user) => {
   return { user, userId: user.id, isAdmin: user.admin, token };
 };
 
-// logique metier pr enregistrement utilisateur
-
+// Definition de la logique pr enregistrer un nouvel utilisateur
 exports.signup = (req, res, next) => {
   // hash du mot de passe
   bcrypt
@@ -29,7 +25,6 @@ exports.signup = (req, res, next) => {
         email: req.body.email,
         password: hash,
       })
-
         .then((user) => {
           res.status(201).json(newToken(user));
         })
@@ -38,8 +33,7 @@ exports.signup = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-// logique metier pour la co d'un utilisateur
-
+// Definition de la logique pour la co d'un utilisateur
 exports.login = (req, res, next) => {
   User.findOne({
     where: { email: req.body.email },
@@ -48,7 +42,6 @@ exports.login = (req, res, next) => {
       if (!user) {
         return res.status(401).json({ error: "L'utilisateur n'existe pas" });
       }
-
       bcrypt
         .compare(req.body.password, user.password)
         .then((valid) => {
@@ -57,23 +50,19 @@ exports.login = (req, res, next) => {
           }
           res.status(201).json(newToken(user));
         })
-
         .catch((error) => res.status(500).json({ error }));
     })
-
     .catch((error) => res.status(500).json({ error }));
 };
 
-// logique metier pr obtenir les infos utilisateur
-
+// Definition de la logique pr obtenir les infos utilisateur
 exports.getOneUser = (req, res, next) => {
   User.findOne({ where: { id: req.params.userId } })
     .then((user) => res.status(200).json({ user }))
     .catch((error) => res.status(404).json({ error }));
 };
 
-// logique metier pr modif les infos generales
-
+// Definition de la logique pr modif les infos generales
 exports.editUser = async (req, res, next) => {
   try {
     const user = await User.findOne({ where: { id: req.params.userId } });
@@ -88,7 +77,6 @@ exports.editUser = async (req, res, next) => {
           "host"
         )}/images/${req.files[0].filename}`;
       }
-
       await user.update(
         { ...userObject },
         { where: { id: req.params.userId } }
@@ -102,8 +90,7 @@ exports.editUser = async (req, res, next) => {
   }
 };
 
-// logique metier pr modif le mdp
-
+// Definition de la logique pr modif le mdp
 exports.changePassword = async (req, res, next) => {
   try {
     const user = await User.findOne({ where: { id: req.params.userId } });
@@ -116,7 +103,6 @@ exports.changePassword = async (req, res, next) => {
         req.body.newPassword,
         user.password
       );
-
       if (!passwordDecrypt) {
         return res
           .status(400)
@@ -145,8 +131,7 @@ exports.changePassword = async (req, res, next) => {
   }
 };
 
-// logique metier pr sup utilisateur
-
+// Definition de la logique pr sup utilisateur
 exports.deleteUser = async (req, res, next) => {
   try {
     const user = await User.findOne({ where: { id: req.params.userId } });

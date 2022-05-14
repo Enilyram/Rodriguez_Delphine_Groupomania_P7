@@ -1,11 +1,8 @@
-// logique metier appliquee aux routes posts
-
 const db = require("../models/index");
 const { Post } = db.sequelize.models;
 const fs = require("fs");
 
-// logique metier creation publication
-
+// definition de la logique de creation de post
 exports.createPost = async (req, res, next) => {
   try {
     let postObject = req.body;
@@ -15,9 +12,8 @@ exports.createPost = async (req, res, next) => {
       let imageUrlList = [];
       for (let i = 0; i < req.files.length; i++) {
         let fileUrl;
-        fileUrl = `${req.protocol}://${req.get("host")}/images/${
-          req.files[i].filename
-        }`;
+        fileUrl = `${req.protocol}://${req.get("host")}/images/${req.files[i].filename
+          }`;
         imageUrlList.push(fileUrl);
       }
       postObject.imageUrl = JSON.stringify(imageUrlList);
@@ -34,8 +30,7 @@ exports.createPost = async (req, res, next) => {
   }
 };
 
-// logique metier modifi publication
-
+//Definition de la logique de modif d'un post
 exports.modifyPost = (req, res, next) => {
   Post.findOne({ where: { id: req.params.id } })
     .then((post) => {
@@ -52,9 +47,8 @@ exports.modifyPost = (req, res, next) => {
         let imageUrlList = [];
         for (let i = 0; i < req.files.length; i++) {
           let fileUrl;
-          fileUrl = `${req.protocol}://${req.get("host")}/images/${
-            req.files[i].filename
-          }`;
+          fileUrl = `${req.protocol}://${req.get("host")}/images/${req.files[i].filename
+            }`;
           imageUrlList.push(fileUrl);
         }
         postObject.imageUrl = JSON.stringify(imageUrlList);
@@ -79,8 +73,7 @@ exports.modifyPost = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-// logique metier suppression publication
-
+// Definition de la logique de suppression d'un post
 exports.deletePost = (req, res, next) => {
   Post.findOne({ where: { id: req.params.id } })
     .then((post) => {
@@ -106,14 +99,12 @@ exports.deletePost = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-//logique metier pour voir tte les publi
-
+//Definition de la logique pour voir tte les publi
 exports.getAllPosts = (req, res, next) => {
   const options = {
     include: db.User,
     order: [["id", "DESC"]],
   };
-
   if (req.query.userId) {
     options.where = {
       userId: parseInt(req.query.userId),
@@ -124,8 +115,7 @@ exports.getAllPosts = (req, res, next) => {
     .catch((error) => res.status(404).json({ error }));
 };
 
-// logique metier pour obtenir une publication
-
+// Definition de la logique pour obtenir une publication
 exports.getOnePost = (req, res, next) => {
   Post.findOne({ where: { id: req.params.id }, include: db.User })
     .then((post) => res.status(200).json({ post }))

@@ -41,8 +41,7 @@ exports.modifyComment = async (req, res, next) => {
   }
 };
 
-//suppressions com
-
+//Delete com
 exports.deleteComment = async (req, res, next) => {
   try {
     const comment = await Comment.findOne({
@@ -66,7 +65,6 @@ exports.deleteComment = async (req, res, next) => {
 };
 
 //récup tous les com
-
 exports.getAllCommentsOfPost = (req, res, next) => {
   const options = {
     where: { postId: req.params.postId },
@@ -85,7 +83,6 @@ exports.getAllCommentsOfPost = (req, res, next) => {
 };
 
 //recup com d'un user sur un post
-
 exports.getOneCommentOfPost = (req, res, next) => {
   Comment.findOne({
     where: { postId: req.params.postId, id: req.params.commentId },

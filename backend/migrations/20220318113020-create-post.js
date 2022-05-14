@@ -27,10 +27,6 @@ module.exports = {
         allowNull: false,
         defaultValue: "",
       },
-      likesCount: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-      },
       commentsCount: {
         type: Sequelize.INTEGER,
         defaultValue: 0,

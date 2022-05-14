@@ -1,10 +1,7 @@
-// application express
-
 const express = require("express");
 const app = express();
 
 // import routes
-
 const userRoutes = require("./routes/user");
 const postsRoutes = require("./routes/posts");
 const commentsRoutes = require("./routes/comments");
@@ -12,11 +9,9 @@ const commentsRoutes = require("./routes/comments");
 const path = require("path");
 
 // transformation corps requete en objet JS
-
 app.use(express.json());
 
 // résolution problème de CORS et accès à l'API
-
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -30,8 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// pour la gestion statique - images
-
+// pour la gestion images
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // routes utilisées

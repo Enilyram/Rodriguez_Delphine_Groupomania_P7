@@ -1,4 +1,4 @@
-// permet de renommer config.json en config.js
+// permet de passer config.json en config.js
 
 const path = require("path");
 

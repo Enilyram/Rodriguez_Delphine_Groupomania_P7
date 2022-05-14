@@ -1,10 +1,7 @@
-//logique métier application commentaires
-
 const db = require("../models/index");
 const { Comment, Post } = db.sequelize.models;
 
 //creation commentaire
-
 exports.createComment = async (req, res, next) => {
   try {
     const post = await Post.findOne({ where: { id: req.params.postId } });
@@ -28,7 +25,6 @@ exports.createComment = async (req, res, next) => {
 };
 
 //modif commentaire
-
 exports.modifyComment = async (req, res, next) => {
   try {
     const comment = await Comment.findOne({

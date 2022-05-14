@@ -1,27 +1,20 @@
-// code serveur
 
 const http = require("http");
 const app = require("./app");
-
-// Pour la securité
-
 const helmet = require("helmet");
 app.use(helmet());
-
-// Contre les attaques de force brut
-
+// Contre les attaques de requetes en boucle
 const rateLimit = require("express-rate-limit");
 const limiter = rateLimit({
   // nombre de requetes max
   max: 100,
   // temps durant lequel pour un utilisateur le comptage de requetes est fait
-  windowMs: 60 * 60 * 1000,
+  windowMs: 30 * 60 * 1000,
   message: "Too many request from this IP",
 });
 app.use(limiter);
 
-// gestion port
-
+//renvoie un port valide
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
 
@@ -37,8 +30,7 @@ const port = normalizePort(process.env.PORT || "3000");
 
 app.set("port", port);
 
-// recherche et gestion des erreurs
-
+// recherche les différentes erreurs et les gère de manière appropriée
 const errorHandler = (error) => {
   if (error.syscall !== "listen") {
     throw error;
@@ -60,8 +52,7 @@ const errorHandler = (error) => {
   }
 };
 
-// recherche et affichage port utilisé 
-
+//recherche et affichage port
 const server = http.createServer(app);
 server.on("error", errorHandler);
 server.on("listening", () => {

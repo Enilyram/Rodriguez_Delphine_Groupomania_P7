@@ -5,7 +5,6 @@ const router = express.Router();
 const postsCtrl = require("../controllers/posts");
 
 // middleware authentification, gestion fichiers entrants
-
 const multer = require("../middleware/multer-config");
 const auth = require("../middleware/auth");
 

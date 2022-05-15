@@ -4,11 +4,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Users", [
       {
-        firstName: "Admin",
-        lastName: "ADMIN",
-        email: "admin@groupomania.com",
+        firstName: "Modo",
+        lastName: "Sanscollier",
+        email: "modo@groupomania.com",
         password:
-          "$2b$10$UUWRCHobLNESADOoBHEMaObppoZri2gvWOaYmEwtk0S6z8JVSwmXG",
+          "$2b$10$.GyAOi9lBxDi6MhfQY4CY.xmEjHhesd3Y1oazQELYkTF/mVTDEdXK",
         admin: true,
         profession: "Chargé de communication",
         createdAt: new Date(),

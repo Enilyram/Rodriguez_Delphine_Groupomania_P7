@@ -8,12 +8,7 @@
           <!-- nombre de com -->
            <div v-if="postcommentsCount == 0">
            Soyez le premier à
-            <!--<b-icon icon="chat-dots" aria-label="accueil"></b-icon>-->
           </div> 
-         <!--<div v-if="postcommentsCount == 1">
-            {{ postcommentsCount }}
-            <b-icon icon="chat-dots" aria-label="accueil"></b-icon>
-          </div> -->
           <div v-if="postcommentsCount ">
             {{ postcommentsCount }}
             <b-icon icon="chat-dots" aria-label="accueil"></b-icon>
@@ -119,10 +114,10 @@ export default {
   },
 
   created() {
-    console.log("----------------------------");
+    console.log("");
     console.log(this.userData.id);
 
-    console.log("----------------------------");
+    console.log("");
     apiFetch
       .get(`/posts/${this.post.id}/comments/`)
       .then((data) => {

@@ -12,8 +12,8 @@
             previewMedia=".preview-media" inputFile=".input-file" /> </b-button>
           <div class="preview-media"></div>
           <p class="text-danger small">{{ errorMessage }}</p>
-          <b-button pill active class="m-1" @click="cancel" type="reset">Annuler</b-button>
-          <b-button pill active class="m-1" type="submit">Publier</b-button>
+          <b-button pill class="m-1" @click="cancel" type="reset">Annuler</b-button>
+          <b-button pill class="m-1" type="submit">Publier</b-button>
         </b-form>
       </b-card>
     </div>

@@ -9,7 +9,7 @@
       <div v-if="mode == 'show'">
         <b-card class="shadow">
           <UserProfileInfos userPageTitle="Mon Profil :" :userId="this.userData.id" />
-          <b-button pill active @click="changeMode" class="m-1" type="submit">Editer le profil</b-button>
+          <b-button pill @click="changeMode" class="m-1" type="submit">Editer le profil</b-button>
         </b-card>
       </div>
       <div v-if="mode == 'edit'">

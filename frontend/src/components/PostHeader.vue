@@ -16,8 +16,8 @@
       </div>
     </b-col>
     <b-col cols="1" class="px-0 d-flex justify-content-end">
-      <!-- ------------------------modification du post ------------------------------------- -->
-      <b-dropdown text="Modifier" size="sm" id="dropdown-right" right class="m-2 border-radius"
+      <!-- modification du post -->
+      <b-dropdown text="Modifier" size="sm" right class="m-2 rounded"
         v-if="post.userId == this.userData.id || this.userData.admin == '1'" toggle-text="Options"
         aria-label="Options de la publication">
         <b-dropdown-item v-b-modal="'modal-modify' + post.id" v-if="post.userId == this.userData.id">Modifier
@@ -44,8 +44,8 @@
           </b-form>
           <!--  -->
           <template #modal-footer="{ ok, cancel }">
-            <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
-            <b-button pill active variant="secondary" @click="ok()"> Modifier </b-button>
+            <b-button pill variant="secondary" @click="cancel()">Retour</b-button>
+            <b-button pill variant="secondary" @click="ok()"> Modifier </b-button>
           </template>
           <!--  -->
         </b-modal>
@@ -56,8 +56,8 @@
           ok-title="supprimer" cancel-title="annuler" @ok="deletePost(`${post.id}`)">
           <p>La publication sera supprimée définitivement.</p>
           <template #modal-footer="{ ok, cancel }">
-            <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
-            <b-button pill active variant="secondary" @click="ok()"> Supprimer</b-button>
+            <b-button pill variant="secondary" @click="cancel()">Retour</b-button>
+            <b-button pill variant="secondary" @click="ok()"> Supprimer</b-button>
           </template>
         </b-modal>
       </b-dropdown>

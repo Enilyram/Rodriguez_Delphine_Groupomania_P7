@@ -10,9 +10,4 @@
   border-color: #091f43 !important;
 }
 
-.dropdown-item:hover {
-  color: #fff;
-  text-decoration: none;
-  background-color: #D1515A;
-}
 </style>

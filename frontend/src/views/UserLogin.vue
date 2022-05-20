@@ -25,14 +25,14 @@
                 </div>
               </b-form-group>
               <p class="text-danger small">{{ errorMessage }}</p>
-              <b-button pill active type="submit">Connexion</b-button>
+              <b-button pill type="submit">Connexion</b-button>
             </b-form>
           </div>
 
           <div class="mb-3">
             <h2>Pas encore de compte ?</h2>
             <p>Créez votre compte pour nous rejoindre !</p>
-            <b-button pill active @click="signup">S'inscrire</b-button>
+            <b-button pill @click="signup">S'inscrire</b-button>
           </div>
         </b-col>
       </b-row>

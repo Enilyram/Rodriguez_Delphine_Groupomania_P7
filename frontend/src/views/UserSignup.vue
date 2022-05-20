@@ -51,8 +51,8 @@
 
             <p class="text-danger small">{{ errorMessage }}</p>
 
-            <b-button pill active class="m-1" @click="cancel">Retour</b-button>
-            <b-button pill active class="m-1" type="submit">Inscription</b-button>
+            <b-button pill class="m-1" @click="cancel">Retour</b-button>
+            <b-button pill class="m-1" type="submit">Inscription</b-button>
           </b-form>
         </b-col>
       </b-row>

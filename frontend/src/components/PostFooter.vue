@@ -56,7 +56,7 @@
 
                   <!-- menu de droite -->
                   <b-col cols="1" class="px-0 d-flex justify-content-end">
-                    <b-dropdown size="sm" id="dropdown-right" right class="m-2" v-if="
+                    <b-dropdown size="sm"  right class="m-2" v-if="
                     comments.User.id == userData.id || userData.admin == '1'" text="Modifier">
                       <!-- modifier commentaire -->
                       <b-dropdown-item v-b-modal="'modal-comment-modify-' + comments.id"
@@ -73,8 +73,8 @@
                           </p>
                         </b-form>
                         <template #modal-footer="{ ok, cancel }">
-                          <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
-                          <b-button pill active variant="secondary" @click="ok()">
+                          <b-button pill variant="secondary" @click="cancel()">Retour</b-button>
+                          <b-button pill variant="secondary" @click="ok()">
                             Envoyer</b-button>
                         </template>
                       </b-modal>
@@ -88,8 +88,8 @@
                         cancel-title="annuler" @ok="deleteComment(`${comments.id}`)" centered>
                         <p>Le commentaire sera supprimé définitivement.</p>
                         <template #modal-footer="{ ok, cancel }">
-                          <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
-                          <b-button pille active variant="secondary" @click="ok()">
+                          <b-button pill variant="secondary" @click="cancel()">Retour</b-button>
+                          <b-button pill variant="secondary" @click="ok()">
                             Supprimer</b-button>
                         </template>
                       </b-modal>
@@ -112,8 +112,8 @@
               title="Créer un commentaire">
             </b-form-textarea>
             <p class="text-danger small">{{ errorMessage }}</p>
-            <b-button pill active class="m-1" @click="cancel" type="reset">Annuler</b-button>
-            <b-button pill active class="m-1" type="submit">Commenter</b-button>
+            <b-button pill class="m-1" @click="cancel" type="reset">Annuler</b-button>
+            <b-button pill class="m-1" type="submit">Commenter</b-button>
           </b-form>
         </b-card>
       </div>

@@ -1,7 +1,7 @@
 <!-- bas de la publi, afficher, commenter -->
 
 <template>
-  <b-container class="test ">
+  <b-container class="test">
     <b-row>
       <div class="d-flex align-items-center justify-content-center">
         <div class="margin-r">
@@ -53,8 +53,48 @@
                       </div>
                     </div>
                   </b-col>
-<!--Modif et supp commentaires-->
-                
+
+                  <!-- menu de droite -->
+                  <b-col cols="1" class="px-0 d-flex justify-content-end">
+                    <b-dropdown size="sm" id="dropdown-right" right class="m-2" v-if="
+                    comments.User.id == userData.id || userData.admin == '1'" text="Modifier">
+                      <!-- modifier commentaire -->
+                      <b-dropdown-item v-b-modal="'modal-comment-modify-' + comments.id"
+                        v-if="comments.User.id == userData.id">Modifier</b-dropdown-item>
+                      <b-modal :id="'modal-comment-modify-' + comments.id" title="Modifier le commentaire"
+                        ok-title="modifier" cancel-title="annuler" @ok="modifyComment(`${comments.id}`, $event)"
+                        centered>
+                        <b-form class="col p-2 overflow-hidden">
+                          <b-form-textarea rows="2" max-rows="10" v-model="comments.description"
+                            class="modify-description" title="modifier le commentaire"></b-form-textarea>
+
+                          <p v-if="errorMessage">
+                            {{ errorMessage }}
+                          </p>
+                        </b-form>
+                        <template #modal-footer="{ ok, cancel }">
+                          <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
+                          <b-button pill active variant="secondary" @click="ok()">
+                            Envoyer</b-button>
+                        </template>
+                      </b-modal>
+
+                      <!-- supprimer commentaire -->
+                      <b-dropdown-item v-b-modal="'modal-comment-delete' + comments.id">
+                        Supprimer
+                      </b-dropdown-item>
+                      <b-modal :id="'modal-comment-delete' + comments.id"
+                        title="Voulez-vous vraiment supprimer ce commentaire ?" ok-title="supprimer"
+                        cancel-title="annuler" @ok="deleteComment(`${comments.id}`)" centered>
+                        <p>Le commentaire sera supprimé définitivement.</p>
+                        <template #modal-footer="{ ok, cancel }">
+                          <b-button pill active variant="secondary" @click="cancel()">Retour</b-button>
+                          <b-button pille active variant="secondary" @click="ok()">
+                            Supprimer</b-button>
+                        </template>
+                      </b-modal>
+                    </b-dropdown>
+                  </b-col>
                 </b-row>
               </b-container>
             </template>
@@ -68,7 +108,7 @@
       <div v-if="modeCreationComment == 'createComment'" class="center">
         <b-card>
           <b-form @submit.prevent="createComment">
-            <b-form-textarea placeholder="Ecrivez un commentaire" rows="1" v-model="commentDescription"
+            <b-form-textarea placeholder="Ecrivez une réponse..." rows="1" v-model="commentDescription"
               title="Créer un commentaire">
             </b-form-textarea>
             <p class="text-danger small">{{ errorMessage }}</p>
@@ -114,10 +154,10 @@ export default {
   },
 
   created() {
-    console.log("");
+    console.log("----------------------------");
     console.log(this.userData.id);
 
-    console.log("");
+    console.log("----------------------------");
     apiFetch
       .get(`/posts/${this.post.id}/comments/`)
       .then((data) => {
@@ -236,22 +276,10 @@ export default {
   font-size: 0.8rem;
 }
 
-.heart {
-  position: absolute;
-  right: 25px;
-}
-
-.header-com {
-  padding: 0px;
-}
-
 .test {
   padding: 0px;
 }
 
-.border-radius {
-  border-radius: 15px
-}
 .cursor-pointer { 
   cursor: pointer; 
   }

@@ -1,7 +1,7 @@
 <!-- Header -->
 
 <template>
-  <div class=" center bg-image text-white mb-3 header-bg header-fixed">
+  <div class="center bg-image text-white mb-3 header-bg header-fixed">
     <!-- menu mobile -->
     <div class="d-flex justify-content-between menu-mobile d-sm-none pb-1">
       <b-img :src="require('../assets/images/logo_court.png')" alt="groupomania logo" fluid></b-img>

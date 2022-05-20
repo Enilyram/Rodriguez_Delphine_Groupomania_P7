@@ -16,7 +16,7 @@
       </div>
     </b-col>
     <b-col cols="1" class="px-0 d-flex justify-content-end">
-      <!-- modification du post -->
+      <!-- ------------------------modification du post ------------------------------------- -->
       <b-dropdown text="Modifier" size="sm" id="dropdown-right" right class="m-2 border-radius"
         v-if="post.userId == this.userData.id || this.userData.admin == '1'" toggle-text="Options"
         aria-label="Options de la publication">
@@ -175,6 +175,6 @@ export default {
 }
 
 .bg-header {
-  color: #091F43;
+  color: #D1515A;
 }
 </style>

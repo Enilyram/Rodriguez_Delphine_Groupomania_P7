@@ -4,6 +4,7 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
+//----------------------------------------------------------------
 // pour l'utilisation de de BootstrapVue
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 

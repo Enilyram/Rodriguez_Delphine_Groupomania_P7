@@ -1,5 +1,3 @@
-<!-- contenu de la publication -->
-
 <template>
   <!-- CONTENU PUBLICATION -->
   <b-row>
@@ -18,7 +16,7 @@
 import PostImages from "./PostImages.vue";
 
 export default {
-  name: "PostContent", 
+  name: "PostContent",
   components: {
     PostImages,
   },

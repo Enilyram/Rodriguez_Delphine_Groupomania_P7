@@ -5,7 +5,7 @@
     <header class="header">
       <HeaderMainView />
     </header>
-    <b-container>
+    <b-container class="col-sm-6" >
       <main class="mb-5">
         <h1 class="center my-4">Fil d'actualités</h1>
         <div class="center">

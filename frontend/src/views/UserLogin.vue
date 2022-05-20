@@ -31,13 +31,12 @@
 
           <div class="mb-3">
             <h2>Pas encore de compte ?</h2>
-            <p>Vous pouvez vous inscrire en quelques secondes.</p>
+            <p>Créez votre compte pour nous rejoindre !</p>
             <b-button pill active @click="signup">S'inscrire</b-button>
           </div>
         </b-col>
       </b-row>
     </b-container>
-
   </div>
 </template>
 
@@ -45,7 +44,6 @@
 import router from "../router/index";
 import { apiFetch } from "../utils/ApiFetch";
 import HeaderStarter from "../components/HeaderStarter.vue";
-
 
 export default {
   name: "UserLogin",

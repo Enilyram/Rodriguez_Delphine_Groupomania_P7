@@ -22,5 +22,6 @@ export default {
 .image-cover {
   object-fit: cover;
   flex-shrink: 0;
+
 }
 </style>

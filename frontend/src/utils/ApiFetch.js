@@ -11,8 +11,8 @@ class ApiFetch {
     const contentType = options.isFormData
       ? {}
       : {
-          "Content-Type": "application/json",
-        };
+        "Content-Type": "application/json",
+      };
 
     return {
       ...contentType,
@@ -28,7 +28,8 @@ class ApiFetch {
       if (res.status === 401) {
         localStorage.clear();
         alert("Session expirée !");
-        router.push({ name: "Login" });
+        router.push({ name: "login" });
+
       }
       return res.json();
     });

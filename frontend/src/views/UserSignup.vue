@@ -7,7 +7,7 @@
       <b-row>
         <b-col class="d-sm-flex flex-column align-items-center text-center border border-secondary mt-5 shadow">
           <h1>Réseau social d'entreprise</h1><br> 
-          <h2>Inscription</h2>
+          <h2>Création de compte</h2>
           <b-form class="form-width my-3 mb-3" @submit.prevent="signup">
             <b-form-group class="mb-3">
               <div class="input-div" id="firstName">
@@ -63,7 +63,7 @@
 <script>
 import { apiFetch } from "../utils/ApiFetch";
 import router from "../router/index";
-import HeaderStarter from "../components/HeaderStarter.vue";
+import HeaderStarter from "../components/HeaderStarter.vue"
 
 export default {
   name: "SignUp",

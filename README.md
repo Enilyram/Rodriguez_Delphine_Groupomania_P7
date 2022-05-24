@@ -2,6 +2,7 @@
 
 ## Backend :
 Si vous n'avez MySql installez le.
+Créez un dossier images dans le dossier backend
 ### Ouvrir un terminal 
 - ``cd backend``
 - ``npm install``

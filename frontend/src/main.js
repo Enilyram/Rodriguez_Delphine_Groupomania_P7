@@ -4,7 +4,6 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
-//----------------------------------------------------------------
 // pour l'utilisation de de BootstrapVue
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
@@ -18,7 +17,6 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 export const eventBus = new Vue();
-//----------------------------------------------------------------
 
 new Vue({
   router,

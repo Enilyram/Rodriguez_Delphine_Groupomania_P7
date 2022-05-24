@@ -18,7 +18,7 @@ import { eventBus } from "../main.js";
 import ProfileImage from "../components/ProfileImage.vue";
 
 export default {
-  name: "UserProfileInfos",
+  name: "InfosProfil",
 
   components: {
     ProfileImage,

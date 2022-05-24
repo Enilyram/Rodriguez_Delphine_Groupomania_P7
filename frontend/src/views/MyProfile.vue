@@ -3,17 +3,17 @@
 <template>
   <div>
     <div>
-      <HeaderMainView />
+      <HeaderGeneral />
     </div>
     <b-container class="center mb-5">
       <div v-if="mode == 'show'">
         <b-card class="shadow">
-          <UserProfileInfos userPageTitle="Mon Profil :" :userId="this.userData.id" />
+          <InfosProfil userPageTitle="Mon Profil :" :userId="this.userData.id" />
           <b-button pill @click="changeMode" class="m-1" type="submit">Editer le profil</b-button>
         </b-card>
       </div>
       <div v-if="mode == 'edit'">
-        <MyProfileEdit @returnShow="returnShow" />
+        <EditionProfil @returnShow="returnShow" />
       </div>
     </b-container>
     <div class="mt-3">
@@ -22,17 +22,17 @@
 </template>
 
 <script>
-import HeaderMainView from "../components/HeaderMainView.vue";
-import UserProfileInfos from "../components/UserProfileInfos.vue";
-import MyProfileEdit from "../components/MyProfileEdit.vue";
+import HeaderGeneral from "../components/HeaderGeneral.vue";
+import InfosProfil from "../components/InfosProfil.vue";
+import EditionProfil from "../components/EditionProfil.vue";
 import { eventBus } from "../main.js";
 
 export default {
   name: "MyProfil",
   components: {
-    HeaderMainView,
-    UserProfileInfos,
-    MyProfileEdit,
+    HeaderGeneral,
+    InfosProfil,
+    EditionProfil,
   },
   data() {
     return {

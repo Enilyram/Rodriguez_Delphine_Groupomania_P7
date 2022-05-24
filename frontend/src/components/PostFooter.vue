@@ -56,7 +56,7 @@
 
                   <!-- menu de droite -->
                   <b-col cols="1" class="px-0 d-flex justify-content-end">
-                    <b-dropdown size="sm"  right class="m-2" v-if="
+                    <b-dropdown size="sm" id="dropdown-right" right class="m-2" v-if="
                     comments.User.id == userData.id || userData.admin == '1'" text="Modifier">
                       <!-- modifier commentaire -->
                       <b-dropdown-item v-b-modal="'modal-comment-modify-' + comments.id"

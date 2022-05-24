@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <HeaderStarter />
+    <HeaderAccueil />
     <b-container class="col-md-4">
       <b-row>
         <b-col class=" d-sm-flex d-xs-flex flex-column align-items-center text-center border border-secondary pr-3 mt-5 shadow">
@@ -43,13 +43,13 @@
 <script>
 import router from "../router/index";
 import { apiFetch } from "../utils/ApiFetch";
-import HeaderStarter from "../components/HeaderStarter.vue";
+import HeaderAccueil from "../components/HeaderAccueil.vue";
 
 export default {
   name: "UserLogin",
 
   components: {
-    HeaderStarter,
+    HeaderAccueil,
   },
 
   data() {

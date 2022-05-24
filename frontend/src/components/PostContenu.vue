@@ -16,7 +16,7 @@
 import PostImages from "./PostImages.vue";
 
 export default {
-  name: "PostContent",
+  name: "PostContenu",
   components: {
     PostImages,
   },

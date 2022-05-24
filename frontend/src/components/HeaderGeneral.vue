@@ -46,7 +46,7 @@ import router from "../router/index";
 // import ProfileImage from "../components/ProfileImage.vue";
 
 export default {
-  name: "HeaderMainView",
+  name: "HeaderGeneral",
 
   data() {
     return {

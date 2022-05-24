@@ -1,12 +1,11 @@
 <!-- header de la publication / details user et depuis quand -->
-
 <template>
   <b-row align-v="center" class="bg-header">
     <b-col cols="11" class="d-flex align-items-center ">
       <ProfileImage imageHeight="50" :imageUrl="post.User.profilePhoto"
         :alt="`image de profil de ${post.User.firstName}`" />
 
-      <div class="px-1 d-flex">
+      <div class="px-1 d-flex flex-column">
         <div class="d-flex align-items-center header-font-name">
           {{ post.User.firstName }} {{ post.User.lastName }}
         </div>
@@ -17,7 +16,7 @@
     </b-col>
     <b-col cols="1" class="px-0 d-flex justify-content-end">
       <!-- modification du post -->
-      <b-dropdown text="Modifier" size="sm" right class="m-2 rounded"
+      <b-dropdown text="Modifier" size="sm" id="dropdown-right" right class="m-2 d-flex d-inline-flex ml-md-auto"
         v-if="post.userId == this.userData.id || this.userData.admin == '1'" toggle-text="Options"
         aria-label="Options de la publication">
         <b-dropdown-item v-b-modal="'modal-modify' + post.id" v-if="post.userId == this.userData.id">Modifier
@@ -29,7 +28,7 @@
             <b-form-textarea rows="2" max-rows="10" v-model="description" class="modify-description"></b-form-textarea>
 
             <!-- ajout de médias -->
-            <PostInputMedia labelTitle="Modifier les images" inputImageId="input-image-modify"
+            <PostAjoutMedia labelTitle="Modifier les images" inputImageId="input-image-modify"
               inputImageClass="input-file-modify" previewMedia=".preview-media-modify" inputFile=".input-file-modify" />
 
             <!-- preview des images -->
@@ -73,7 +72,7 @@ dayjs.extend(relativeTime);
 require("dayjs/locale/fr");
 
 // -------------------------------------
-import PostInputMedia from "../components/PostInputMedia.vue";
+import PostAjoutMedia from "../components/PostAjoutMedia.vue";
 import { apiFetch } from "../utils/ApiFetch";
 // -------------------------------------
 
@@ -81,7 +80,7 @@ export default {
   name: "PostHeader",
   components: {
     ProfileImage,
-    PostInputMedia,
+    PostAjoutMedia,
   },
   props: {
     post: { type: Object },

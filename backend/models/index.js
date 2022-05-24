@@ -19,6 +19,8 @@ if (config.use_env_variable) {
     config
   );
 }
+sequelize.authenticate().then(function (errors) { console.log(errors || 'Connection succesfully') });
+
 
 fs.readdirSync(__dirname)
   .filter((file) => {

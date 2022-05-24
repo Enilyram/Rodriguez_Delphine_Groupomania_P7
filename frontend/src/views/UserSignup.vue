@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <HeaderStarter />
+    <HeaderAccueil />
     <b-container class="col-sm-8 col-md-4 col-xs-8">
       <b-row>
         <b-col class="d-sm-flex flex-column align-items-center text-center border border-secondary mt-5 shadow">
@@ -63,13 +63,13 @@
 <script>
 import { apiFetch } from "../utils/ApiFetch";
 import router from "../router/index";
-import HeaderStarter from "../components/HeaderStarter.vue"
+import HeaderAccueil from "../components/HeaderAccueil.vue"
 
 export default {
   name: "SignUp",
 
   components: {
-    HeaderStarter,
+    HeaderAccueil,
   },
 
   data() {

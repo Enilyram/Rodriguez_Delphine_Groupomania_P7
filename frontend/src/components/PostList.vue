@@ -10,7 +10,7 @@
             <PostHeader :post="post" :loadPosts="loadPosts" />
           </template>
 
-          <PostContent :post="post" :loadPosts="loadPosts" />
+          <PostContenu :post="post" :loadPosts="loadPosts" />
           <template #footer>
             <PostFooter :post="post" />
           </template>
@@ -30,20 +30,19 @@
 </template>
 
 <script>
-import PostContent from "../components/PostContent.vue";
+import PostContenu from "../components/PostContenu.vue";
 import PostHeader from "../components/PostHeader.vue";
 import PostFooter from "../components/PostFooter.vue";
 import { apiFetch } from "../utils/ApiFetch";
 import { eventBus } from "../main.js";
-import LoadSpinner from "../components/LoadSpinner.vue";
 
 export default {
   name: "PostList",
   components: {
-    PostContent,
+    PostContenu,
     PostHeader,
     PostFooter,
-    LoadSpinner,
+
   },
   data() {
     return {

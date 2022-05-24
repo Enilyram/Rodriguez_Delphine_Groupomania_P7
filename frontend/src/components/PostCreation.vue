@@ -8,7 +8,7 @@
           <b-form-textarea placeholder="Quoi de neuf ?" rows="3" v-model="description"
             title="Créer une publication"></b-form-textarea> 
 
-         <b-button pill class="d-flex">  <PostInputMedia labelTitle="Poster une image" inputImageId="input-image" inputImageClass="input-file"
+         <b-button pill class="d-flex">  <PostAjoutMedia labelTitle="Poster une image" inputImageId="input-image" inputImageClass="input-file"
             previewMedia=".preview-media" inputFile=".input-file" /> </b-button>
           <div class="preview-media"></div>
           <p class="text-danger small">{{ errorMessage }}</p>
@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import PostInputMedia from "../components/PostInputMedia.vue";
+import PostAjoutMedia from "../components/PostAjoutMedia.vue";
 import { apiFetch } from "../utils/ApiFetch";
 import { eventBus } from "../main.js";
 
 export default {
   name: "PostCreation",
   components: {
-    PostInputMedia,
+    PostAjoutMedia,
   },
   data() {
     return {

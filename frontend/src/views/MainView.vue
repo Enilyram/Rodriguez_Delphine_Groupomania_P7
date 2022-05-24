@@ -3,9 +3,9 @@
 <template>
   <div>
     <header class="header">
-      <HeaderMainView />
+      <HeaderGeneral />
     </header>
-    <b-container class="col-sm-6" >
+    <b-container>
       <main class="mb-5">
         <h1 class="center my-4">Fil d'actualités</h1>
         <div class="center">
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import HeaderMainView from "../components/HeaderMainView.vue";
+import HeaderGeneral from "../components/HeaderGeneral.vue";
 import PostCreation from "../components/PostCreation.vue";
 import PostList from "../components/PostList.vue";
 
@@ -29,7 +29,7 @@ export default {
   name: "MainView",
 
   components: {
-    HeaderMainView,
+    HeaderGeneral,
     PostCreation,
     PostList,
   },

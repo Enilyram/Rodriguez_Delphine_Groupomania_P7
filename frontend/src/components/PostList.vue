@@ -17,11 +17,6 @@
         </b-card>
       </b-card-group>
     </div>
-
-    <div v-else-if="!posts.length && !noPost">
-      <LoadSpinner />
-    </div>
-
     <div v-if="noPost">
       <p class="my-4 center">Pas encore de publication.</p>
       <p class="my-4 center">Vous serez peut être le premier à publier !</p>

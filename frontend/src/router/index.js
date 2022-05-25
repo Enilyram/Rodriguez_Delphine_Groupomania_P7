@@ -1,4 +1,4 @@
-// detail des routes utilisées //
+// Routes //
 
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -7,7 +7,6 @@ import Login from "../views/UserLogin.vue";
 import Signup from "../views/UserSignup.vue";
 import MainView from "../views/MainView.vue";
 import MyProfile from "../views/MyProfile.vue";
-//import AdminView from "../views/AdminView.vue";
 
 Vue.use(VueRouter);
 
@@ -32,7 +31,7 @@ const routes = [
     name: "monprofil",
     component: MyProfile,
   },
- 
+
 ];
 
 const router = new VueRouter({

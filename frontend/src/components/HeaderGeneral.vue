@@ -113,6 +113,6 @@ export default {
 
 .bg-image {
   background-image: url('../assets/images/immeublegroupo.png');
-
+  background-size: cover;
 }
 </style>

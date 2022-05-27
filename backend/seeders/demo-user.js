@@ -6,7 +6,7 @@ module.exports = {
       {
         firstName: "Modo",
         lastName: "Sanscollier",
-        email: "modo@groupomania.com",
+        email: "modo@groupomania.fr",
         password:
           "$2b$10$.GyAOi9lBxDi6MhfQY4CY.xmEjHhesd3Y1oazQELYkTF/mVTDEdXK",
         admin: true,

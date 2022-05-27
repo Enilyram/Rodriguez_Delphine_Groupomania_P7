@@ -177,7 +177,7 @@ export default {
       this.$emit("returnShow", { mode: "show" });
     },
 
-    //------------------------------------------------------------------
+    //--ajouter com pr soutenance
 
     changePassword() {
       if (
@@ -207,7 +207,7 @@ export default {
       }
     },
 
-    //------------------------------------------------------------------
+    //--ajouter com pr soutenance
 
     deleteUser() {
       if (this.deleteUserForm == "JE VOUS QUITTE") {

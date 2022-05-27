@@ -71,10 +71,10 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 require("dayjs/locale/fr");
 
-// -------------------------------------
+//--ajouter com pr soutenance
 import PostAjoutMedia from "../components/PostAjoutMedia.vue";
 import { apiFetch } from "../utils/ApiFetch";
-// -------------------------------------
+//--ajouter com pr soutenance
 
 export default {
   name: "PostHeader",

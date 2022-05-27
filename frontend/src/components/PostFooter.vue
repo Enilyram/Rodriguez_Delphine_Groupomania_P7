@@ -1,7 +1,7 @@
 <!-- bas de la publi, afficher, commenter -->
 
 <template>
-  <b-container class="test">
+  <b-container class="paddingnull">
     <b-row>
       <div class="d-flex align-items-center justify-content-center">
         <div class="margin-r">
@@ -154,10 +154,10 @@ export default {
   },
 
   created() {
-    console.log("----------------------------");
+    console.log("--");
     console.log(this.userData.id);
 
-    console.log("----------------------------");
+    console.log("--");
     apiFetch
       .get(`/posts/${this.post.id}/comments/`)
       .then((data) => {
@@ -276,7 +276,7 @@ export default {
   font-size: 0.8rem;
 }
 
-.test {
+.paddingnull {
   padding: 0px;
 }
 

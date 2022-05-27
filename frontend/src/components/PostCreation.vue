@@ -39,7 +39,7 @@ export default {
     };
   },
 
-  //-------------------------------------------------------------------------------
+  //--ajouter com pr soutenance
   methods: {
     cancel() {
       this.mode = "default";

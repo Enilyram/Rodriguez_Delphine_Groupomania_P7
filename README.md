@@ -7,8 +7,8 @@ Créez un dossier images dans le dossier backend
 - ``cd backend``
 - ``npm install``
 - Modification du fichier .env_exemple en .env en modifiant le contenu avec les informations adéquates
-- Création de la base de données:
-- ``sequelize db:create``
+#### Création de la base de données:
+- Créez une bdd dans mysql nommée : groupomania
 #### Migration de la structure de la base de données :
 - ``npx sequelize db:migrate``
 #### Migration des infos modérateurs:

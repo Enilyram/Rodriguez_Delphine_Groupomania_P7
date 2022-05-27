@@ -18,7 +18,7 @@
       <!-- modification du post -->
       <b-dropdown text="Modifier" size="sm" id="dropdown-right" right class="m-2 d-flex d-inline-flex ml-md-auto"
         v-if="post.userId == this.userData.id || this.userData.admin == '1'" toggle-text="Options"
-        aria-label="Options de la publication">
+        aria-label="Options de la publication"> 
         <b-dropdown-item v-b-modal="'modal-modify' + post.id" v-if="post.userId == this.userData.id">Modifier
         </b-dropdown-item>
         <b-modal :id="'modal-modify' + post.id" title="Modifier la publication" ok-title="modifier"

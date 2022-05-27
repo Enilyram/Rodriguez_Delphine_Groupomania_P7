@@ -177,7 +177,7 @@ export default {
       this.$emit("returnShow", { mode: "show" });
     },
 
-    //--ajouter com pr soutenance
+    //--changement de mdp
 
     changePassword() {
       if (
@@ -194,7 +194,7 @@ export default {
               localStorage.clear();
               router.push({ name: "login" });
             } else {
-              this.errorMessage = "Le mot de passe actuel est érroné.";
+              this.errorMessage = "Le mot de passe actuel est faux.";
             }
             console.log(res);
           })
@@ -207,7 +207,7 @@ export default {
       }
     },
 
-    //--ajouter com pr soutenance
+    //--suppression du compte
 
     deleteUser() {
       if (this.deleteUserForm == "JE VOUS QUITTE") {

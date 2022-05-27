@@ -70,7 +70,6 @@ export default {
             } else {
               localStorage.setItem("userToken", res.token);
               localStorage.setItem("userData", JSON.stringify(res.user));
-              console.log("userToken:", res.token);
               router.push({ name: "groupomania" });
             }
           })

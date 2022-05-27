@@ -8,7 +8,7 @@
           <b-form-textarea placeholder="Quoi de neuf ?" rows="3" v-model="description"
             title="Créer une publication"></b-form-textarea> 
 
-         <b-button pill class="d-flex">  <PostAjoutMedia labelTitle="Poster une image" inputImageId="input-image" inputImageClass="input-file"
+         <b-button pill class="d-flex mt-2">  <PostAjoutMedia labelTitle="Poster une image" inputImageId="input-image" inputImageClass="input-file"
             previewMedia=".preview-media" inputFile=".input-file" /> </b-button>
           <div class="preview-media"></div>
           <p class="text-danger small">{{ errorMessage }}</p>

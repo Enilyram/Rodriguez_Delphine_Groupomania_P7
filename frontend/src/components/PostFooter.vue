@@ -38,7 +38,7 @@
                     <div class="d-flex">
                       <ProfileImage imageHeight="40" :imageUrl="comments.User.profilePhoto"
                         :alt="`image de profil de ${comments.User.firstName}`" />
-                      <div class="px-1 d-flex">
+                      <div class="px-1 d-flex flex-column">
                         <div class="d-flex align-items-center">
                           {{ comments.User.firstName }}
                           {{ comments.User.lastName }}

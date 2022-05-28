@@ -41,9 +41,8 @@
 </template>
 
 <script>
-// import DateTime from "../components/DateTime.vue";
+
 import router from "../router/index";
-// import ProfileImage from "../components/ProfileImage.vue";
 
 export default {
   name: "HeaderGeneral",

@@ -28,7 +28,7 @@
 
         <b-form-group class="mb-3">
           <label for="profession">Profession</label>
-          <b-form-input class="shadow" v-model="form.profession" type="text" placeholder="profession" id="profession">
+          <b-form-input class="shadow" v-model="form.profession" type="text" placeholder="Job dans l'entreprise" id="profession">
           </b-form-input>
         </b-form-group>
 

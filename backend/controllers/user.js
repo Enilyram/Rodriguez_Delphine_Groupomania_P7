@@ -91,45 +91,45 @@ exports.editUser = async (req, res, next) => {
 };
 
 // Definition de la logique pr modif le mdp
-exports.changePassword = async (req, res, next) => {
-  try {
-    const user = await User.findOne({ where: { id: req.params.userId } });
-    if (req.token.userId === user.id) {
-      const passwordDecrypt = await bcrypt.compare(
-        req.body.currentPassword,
-        user.password
-      );
-      const newPasswordDecrypt = await bcrypt.compare(
-        req.body.newPassword,
-        user.password
-      );
-      if (!passwordDecrypt) {
-        return res
-          .status(400)
-          .json({ error1: "Erreur mot de passe" });
-      } else if (newPasswordDecrypt) {
-        return res.status(400).json({
-          error: "Votre nouveau mot de passe ne peut pas être identique à l'ancien",
-        });
-      } else {
-        const hash = await bcrypt.hash(req.body.newPassword, 10);
-        await user.update(
-          { password: hash },
-          { where: { id: req.params.userId } }
-        );
-        res.status(201).json({
-          message:
-            "Mot de passe modifié, veuillez vous reconnecter",
-          user,
-        });
-      }
-    } else {
-      throw "Vous ne pouvez pas modifier ce profil";
-    }
-  } catch (error) {
-    res.status(400).json({ error });
-  }
-};
+//exports.changePassword = async (req, res, next) => {
+// try {
+// const user = await User.findOne({ where: { id: req.params.userId } });
+// if (req.token.userId === user.id) {
+//  const passwordDecrypt = await bcrypt.compare(
+//    req.body.currentPassword,
+//   user.password
+// );
+// const newPasswordDecrypt = await bcrypt.compare(
+//   req.body.newPassword,
+//   user.password
+// );
+// if (!passwordDecrypt) {
+//   return res
+//    .status(400)
+//    .json({ error1: "Erreur mot de passe" });
+// } else if (newPasswordDecrypt) {
+//   return res.status(400).json({
+//      error: "Votre nouveau mot de passe ne peut pas être identique à l'ancien",
+//    });
+//  } else {
+//    const hash = await bcrypt.hash(req.body.newPassword, 10);
+//   await user.update(
+//   { password: hash },
+// { where: { id: req.params.userId } }
+//  );
+// res.status(201).json({
+//  message:
+//  "Mot de passe modifié, veuillez vous reconnecter",
+// user,
+// });
+// }
+//} else {
+//throw "Vous ne pouvez pas modifier ce profil";
+//}
+//} catch (error) {
+//res.status(400).json({ error });
+//}
+//};
 
 // Definition de la logique pr sup utilisateur
 exports.deleteUser = async (req, res, next) => {

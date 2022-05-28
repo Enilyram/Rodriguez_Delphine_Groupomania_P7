@@ -103,7 +103,7 @@ export default {
           .then((res) => {
             console.log("token:", res.token);
             if (!res.token) {
-              this.errorMessage = "Erreur, veuillez vous connecter.";
+              this.errorMessage = "Erreur, email déjà utilisée ou mot de passe pas assez fort, ton mot de passe doit contenir au minum 6 caractères avec 1 chiffre et 1 majuscule ";
             } else {
               localStorage.setItem("userToken", res.token);
               localStorage.setItem("userData", JSON.stringify(res.user));

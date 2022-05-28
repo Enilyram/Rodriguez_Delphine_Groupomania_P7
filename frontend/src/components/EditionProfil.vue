@@ -46,7 +46,7 @@
       </b-form>
     </b-card>
 
-    <!-- changer le mot de passe -->
+    <!-- changer le mot de passe 
 
     <b-card class="mb-3 shadow d-flex align-items-center">
       <h2>Mot de passe</h2>
@@ -76,7 +76,7 @@
         <b-button pill class="m-1" @click="cancel">Retour</b-button>
         <b-button pill class="m-1" type="submit">Modifier</b-button>
       </b-form>
-    </b-card>
+    </b-card> -->
 
     <!-- supprimer le compte -->
     <b-card class="mb-3 shadow d-flex align-items-center">

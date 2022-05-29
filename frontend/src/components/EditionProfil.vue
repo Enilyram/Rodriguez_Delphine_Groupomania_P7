@@ -46,38 +46,6 @@
       </b-form>
     </b-card>
 
-    <!-- changer le mot de passe 
-
-    <b-card class="mb-3 shadow d-flex align-items-center">
-      <h2>Mot de passe</h2>
-
-      <b-form @submit.prevent="changePassword" class="form-w">
-        <b-form-group>
-          <label for="password">Ancien mot de passe</label>
-          <b-form-input class="shadow" v-model="passwordChangeForm.currentPassword" type="password" id="password">
-          </b-form-input>
-        </b-form-group>
-
-        <b-form-group>
-          <label for="passwordNew">Nouveau mot de passe</label>
-          <b-form-input class="shadow" v-model="passwordChangeForm.newPassword" type="password" id="passwordNew">
-          </b-form-input>
-        </b-form-group>
-
-        <b-form-group>
-          <label for="passwordNewConfirm">Vérification nouveau mot de passe</label>
-          <b-form-input class="shadow" v-model="passwordChangeForm.newPasswordConfirm" type="password"
-            id="passwordNewConfirm">
-          </b-form-input>
-        </b-form-group>
-
-        <p class="text-danger small">{{ errorMessage }}</p>
-
-        <b-button pill class="m-1" @click="cancel">Retour</b-button>
-        <b-button pill class="m-1" type="submit">Modifier</b-button>
-      </b-form>
-    </b-card> -->
-
     <!-- supprimer le compte -->
     <b-card class="mb-3 shadow d-flex align-items-center">
       <h2>Supprimer le compte</h2>
@@ -177,38 +145,7 @@ export default {
       this.$emit("returnShow", { mode: "show" });
     },
 
-    //--changement de mdp
-
-    changePassword() {
-      if (
-        this.passwordChangeForm.newPassword ==
-        this.passwordChangeForm.newPasswordConfirm
-      ) {
-        apiFetch
-          .put(`/auth/user-profile/settings/${this.user.id}`, {
-            currentPassword: this.passwordChangeForm.currentPassword,
-            newPassword: this.passwordChangeForm.newPassword,
-          })
-          .then((res) => {
-            if (!res.error1) {
-              localStorage.clear();
-              router.push({ name: "login" });
-            } else {
-              this.errorMessage = "Le mot de passe actuel est faux.";
-            }
-            console.log(res);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        this.errorMessage =
-          "Les nouveaux mots de passe doivent etre identiques.";
-      }
-    },
-
     //--suppression du compte
-
     deleteUser() {
       if (this.deleteUserForm == "JE VOUS QUITTE") {
         apiFetch.delete(`/auth/user-profile/${this.user.id}`).catch((error) => {

@@ -1,9 +1,7 @@
 //gestion fichiers entrants
-
 const multer = require("multer");
 
 // correspondance extension fichier
-
 const MIME_TYPES = {
   "image/jpg": "jpg",
   "image/jpeg": "jpg",
@@ -28,7 +26,6 @@ const storage = multer.diskStorage({
 });
 
 // verification du type de fichier
-
 const fileFilter = (req, file, callback) => {
   if (
     file.mimetype == "image/jpg" ||
